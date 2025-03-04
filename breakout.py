@@ -1,8 +1,8 @@
+from turtle import *
+from ball import Ball
 from time import sleep
 from scoreboard import Scoreboard
-from turtle import *
 from platform_paddle import Platform
-from ball import Ball
 
 
 win = Screen()
@@ -12,6 +12,15 @@ win.title("BreakOut")
 win.tracer(0)
 win.listen()
 
+
+def continue_game():
+    pass
+
+countdown_timer = Turtle()
+countdown_timer.hideturtle()
+countdown_timer.penup()
+countdown_timer.color("white")
+
 scoreboard = Scoreboard()
 platform = Platform()
 ball = Ball("normal")
@@ -19,20 +28,26 @@ ball = Ball("normal")
 win.onkeypress(platform.move_right, "Right")
 win.onkeypress(platform.move_left, "Left")
 
-while scoreboard.game_on:
-    win.update()
-    sleep(0.001)
-    scoreboard.display_score()
-    ball.move_ball()
+def main():
+    while scoreboard.game_on:
+        win.update()
+        sleep(0.001)
+        scoreboard.display_score()
+        ball.move_ball()
 
-    # Detect life lost
-    if ball.ycor() <= -275:
-        scoreboard.lose_life()
-        ball.reset_ball()
-        scoreboard.create_countdown()
+        # Detect life lost
+        if ball.ycor() <= -275:
+            scoreboard.lose_life()
+            ball.reset_ball()
+            platform.reset_platform()
+            sleep(3)
 
-    # Detect paddle bounce
-    ball.platform_bounce(platform)
 
+        # Detect paddle bounce
+        ball.platform_bounce(platform)
+
+
+if __name__ == "__main__":
+    main()
 
 win.mainloop()

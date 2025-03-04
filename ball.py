@@ -34,6 +34,8 @@ class Ball(Turtle):
         if self.ycor() >= 280:
             if self.heading() in range(91, 180):
                 self.lt(90)
+                while self.heading() < 182:
+                    self.lt(10)
                 self.fd(1)
             else:
                 self.rt(90)

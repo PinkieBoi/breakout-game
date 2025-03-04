@@ -1,7 +1,4 @@
-from time import sleep
 from turtle import Turtle
-
-from vboxapi import xrange
 
 
 class Scoreboard(Turtle):
@@ -27,11 +24,3 @@ class Scoreboard(Turtle):
         self.lives -= 1
         if self.lives == 0:
             self.game_on = False
-
-    def create_countdown(self):
-        self.goto(0, 0)
-        for _ in xrange(5, 0, -1):
-            self.clear()
-            self.write(str(_), font=("Ubuntu", 15, "bold"))
-            sleep(1)
-        self.goto(-110, -270)

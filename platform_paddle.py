@@ -22,3 +22,6 @@ class Platform(Turtle):
             self.rt(90)
         else:
             self.lt(90)
+
+    def reset_platform(self):
+        self.goto(0, -225)
