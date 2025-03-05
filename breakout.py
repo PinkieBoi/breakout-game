@@ -1,8 +1,24 @@
+# TODO: Implement Levels
+# TODO: Detect ball / block collision
+
 from turtle import *
 from ball import Ball
 from time import sleep
 from scoreboard import Scoreboard
 from platform_paddle import Platform
+
+
+def create_pyramid():
+
+    pass
+
+
+def create_columns():
+    pass
+
+
+def create_i_pyramid():
+    pass
 
 
 win = Screen()
@@ -30,6 +46,7 @@ win.onkeypress(platform.move_left, "Left")
 
 def main():
     while scoreboard.game_on:
+        # while scoreboard.levels < 11:
         win.update()
         sleep(0.001)
         scoreboard.display_score()
@@ -42,6 +59,7 @@ def main():
             platform.reset_platform()
             sleep(3)
 
+        # Detect collision with block
 
         # Detect paddle bounce
         ball.platform_bounce(platform)
