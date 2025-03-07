@@ -1,12 +1,12 @@
 # TODO: Implement bouncing using real physics.
 
-from random import randint
 from turtle import Turtle
+from random import randint
 
 
 class Ball(Turtle):
 
-    def __init__(self, difficulty):
+    def __init__(self):
         super().__init__()
         self.shape("circle")
         self.penup()
@@ -16,12 +16,6 @@ class Ball(Turtle):
         self.seth(randint(15, 166))
         if self.heading() == 90:
             self.seth(randint(10, 170))
-        if difficulty == "hard":
-            self.speed(0)
-        elif difficulty == "easy":
-            self.speed(3)
-        else:
-            self.speed(5)
 
     def wall_bounce(self):
         # randomizer to avoid always bouncing at 90 degrees

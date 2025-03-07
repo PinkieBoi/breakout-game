@@ -13,18 +13,25 @@ def create_pyramid():
     x = [0, 20, 40, 60, 80, 100, 120, 140]
     y = [0, 10, 20, 30, 40, 50, 60, 70]
     rows = 6
-    pass
+    blocks = []
+    return blocks
 
 
 def create_i_pyramid():
     x = [0, 20, 40, 60, 80, 100]
     y = [0, 20, 40, 60, 80, 100]
     rows = 6
-    pass
+    blocks = []
+    return blocks
 
 
 def create_columns():
     rows = 6
+    blocks = []
+    return blocks
+
+
+def continue_game():
     pass
 
 
@@ -35,18 +42,9 @@ win.title("BreakOut")
 win.tracer(0)
 win.listen()
 
-
-def continue_game():
-    pass
-
-countdown_timer = Turtle()
-countdown_timer.hideturtle()
-countdown_timer.penup()
-countdown_timer.color("white")
-
 scoreboard = Scoreboard()
 platform = Platform()
-ball = Ball("normal")
+ball = Ball()
 
 win.onkeypress(platform.move_right, "Right")
 win.onkeypress(platform.move_left, "Left")
@@ -62,8 +60,8 @@ def main():
         # Detect life lost
         if ball.ycor() <= -275:
             scoreboard.lose_life()
-            ball.reset_ball()
             platform.reset_platform()
+            ball.reset_ball()
             sleep(3)
 
         # Detect collision with block
