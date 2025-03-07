@@ -1,4 +1,5 @@
 # TODO: Implement Levels
+# TODO: Create blocks for level
 # TODO: Detect ball / block collision
 
 from turtle import *
@@ -9,15 +10,21 @@ from platform_paddle import Platform
 
 
 def create_pyramid():
-
-    pass
-
-
-def create_columns():
+    x = [0, 20, 40, 60, 80, 100, 120, 140]
+    y = [0, 10, 20, 30, 40, 50, 60, 70]
+    rows = 6
     pass
 
 
 def create_i_pyramid():
+    x = [0, 20, 40, 60, 80, 100]
+    y = [0, 20, 40, 60, 80, 100]
+    rows = 6
+    pass
+
+
+def create_columns():
+    rows = 6
     pass
 
 
