@@ -17,5 +17,11 @@ class Platform(Turtle):
     def move_left(self):
         self.bk(10)
 
+    def bounce_ball(self):
+        if 90 < self.heading() > 270:
+            self.rt(90)
+        else:
+            self.lt(90)
+
     def reset_platform(self):
         self.goto(0, -225)
