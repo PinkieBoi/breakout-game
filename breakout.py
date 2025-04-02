@@ -59,7 +59,7 @@ def main():
         win.update()
         sleep(0.001)
         scoreboard.display_score()
-        ball.move_ball(game_blocks)
+        ball.move_ball()
 
         # Detect life lost
         if ball.ycor() <= -275:
@@ -69,7 +69,15 @@ def main():
             sleep(3)
 
         # Detect block collision & remove block
-
+        block_name = ball.block_bounce(game_blocks)
+        if block_name == "None":
+            pass
+        else:
+            print(block_name)
+            game_blocks[
+                next(i for i, block in enumerate(game_blocks) if block.name == block_name)
+            ].goto(1000, 1000)
+            scoreboard.points += 10
 
         # Detect paddle bounce
         ball.platform_bounce(platform)

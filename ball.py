@@ -41,11 +41,10 @@ class Ball(Turtle):
                 self.rt(randint(80, 120))
                 self.fd(1)
 
-    def move_ball(self, blocks):
+    def move_ball(self):
         self.fd(1)
         self.wall_bounce()
         self.roof_bounce()
-        self.block_bounce(blocks)
 
     def platform_bounce(self, platform):
         if self.ycor() < -210:
@@ -62,11 +61,14 @@ class Ball(Turtle):
             if self.ycor() - 5 <= block.ycor() <= self.ycor() + 5:
                 if self.xcor() - 20 <= block.xcor() <= block.xcor() + 20:
                     if self.heading() in range(91, 180) or self.heading() in range(271, 360):
-                        self.rt(100)
+                        self.rt(randint(80, 120))
                         self.fd(10)
+                        return block.name
                     else:
-                        self.lt(100)
+                        self.lt(randint(80, 120))
                         self.fd(10)
+                        return block.name
+        return "None"
 
     def reset_ball(self):
         self.goto(0, -210)
